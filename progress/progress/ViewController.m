@@ -8,13 +8,14 @@
 
 #import "ViewController.h"
 
-#define PROGRESS_SETP_TIME 0.05
+#define PROGRESS_SETP_TIME 0.01
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UISegmentedControl *speedSegment;
 @property (weak, nonatomic) IBOutlet UISwitch *repeatSwitch;
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 @property (weak, nonatomic) IBOutlet UIProgressView *timeProgress;
+@property (weak, nonatomic) IBOutlet UILabel *second;
 @property (nonatomic)       float    progressTimer;
 @property (nonatomic)       float    performanceTime;
 @property (nonatomic)       BOOL     inProgress;
@@ -48,6 +49,7 @@ static float performanceTimes[] = {0.5, 5.0};
     _performanceTime = performanceTimes[_speedSegment.selectedSegmentIndex];
     _repeatSwitch.on = NO;
     _timeProgress.progress = 0.0;
+    _second.text = @"0.00";
 }
 
 - (void)startProgress
@@ -55,6 +57,7 @@ static float performanceTimes[] = {0.5, 5.0};
     _progressTimer = 0.0;
     _timeProgress.progress = _progressTimer;
     _inProgress = YES;
+    _second.text = @"0.00";
     [_startButton setTitle:@"Stop" forState:UIControlStateNormal];
     [self performSelector:@selector(updateProgress) withObject:nil afterDelay:PROGRESS_SETP_TIME];
 }
@@ -69,6 +72,7 @@ static float performanceTimes[] = {0.5, 5.0};
 - (void)updateProgress
 {
     _progressTimer += PROGRESS_SETP_TIME;
+    _second.text = [NSString stringWithFormat:@"%.2f", _progressTimer];
     _timeProgress.progress = _progressTimer / _performanceTime;
     if ( _progressTimer < _performanceTime ) {
         [self performSelector:@selector(updateProgress) withObject:nil afterDelay:PROGRESS_SETP_TIME];

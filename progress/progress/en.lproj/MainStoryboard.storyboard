@@ -88,6 +88,7 @@
                     </view>
                     <connections>
                         <outlet property="repeatSwitch" destination="Ugf-C2-zst" id="d8S-af-8LO"/>
+                        <outlet property="second" destination="bpY-rO-dNt" id="81J-fe-7aS"/>
                         <outlet property="speedSegment" destination="eXF-JX-efM" id="8zr-FB-2Jd"/>
                         <outlet property="startButton" destination="Sja-HV-NZg" id="KJo-Xq-r67"/>
                         <outlet property="timeProgress" destination="BAx-le-0WO" id="xR1-p0-qr6"/>
@@ -97,22 +98,6 @@
             </objects>
         </scene>
     </scenes>
-    <classes>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="speedChanged:"/>
-                <relationship kind="action" name="touchStartButton:"/>
-                <relationship kind="outlet" name="repeatSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="speedSegment" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="startButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="timeProgress" candidateClass="UIProgressView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
